@@ -6,6 +6,19 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <ul>
+
+            <?php foreach ($tasks as $task): ?>
+        <li>
+            <?php if ($task->isComplete()): ?>
+            <s>
+                <?= ($task->$description) ?>
+            </s>
+            <?php else: ?>
+                <?= ($task->$description) ?>
+            <?php endif; ?>
+            <?php endforeach; ?>
+        </li>
+    </ul>
 </body>
 </html>
