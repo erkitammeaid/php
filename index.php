@@ -2,20 +2,24 @@
 
 require 'functions.php';
 
-class Task {
+class Task
+{
 
     public $description;
 
     protected $completed = false;
 
-    public function __construct($description) {
+    public function __construct($description)
+    {
         $this->description = $description;
     }
 
-    public function isComplete() {
+    public function isComplete()
+    {
         return $this->completed;
     }
-    public function complete () {
+    public function complete()
+    {
         $this->completed = true;
     }
 }
@@ -23,12 +27,12 @@ class Task {
 $tasks = [
     new Task('Go to the store'), //0
     new Task('Finish my screencast'), //1
-    new Task('Clean my room'), //etc
+    new Task('Clean my room') //etc
 ];
 
 // dd($tasks);
 
-$tasks[0];
+$tasks[0]->complete();
 
 require 'index.view.php';
 
