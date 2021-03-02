@@ -13,8 +13,8 @@ try {
     die('Viga: ei sa andmebaasiga yhendust');
 }
 
-$pdo->prepare('select * from todos');
-
+$statement = $pdo->prepare('select * from todos');
+$result = $statement->fetchAll(); 
 $statement->execute();
 
 var_dump($statement->fetchAll());
