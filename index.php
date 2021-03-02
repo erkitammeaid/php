@@ -1,42 +1,30 @@
 <?php
 
-require 'functions.php';
+$host = 'd83309.mysql.zonevs.eu';
+$database = 'd83309_mytodo';
+$user = 'd83309sa327405';
+$password = 'ametikool2021';
 
-class Task
-{
 
-    public $description;
-
-    protected $completed = false;
-
-    public function __construct($description)
-    {
-        $this->description = $description;
-    }
-
-    public function isComplete()
-    {
-        return $this->completed;
-    }
-    public function complete()
-    {
-        $this->completed = true;
-    }
+try {
+    $pdo = new PDO("mysql:host={$host};dbname={$database}", $user, $password);
+    echo 'Yhenduse loomine 6nnestus';
+} catch ( PDOException $e) {
+    die('Viga: ei sa andmebaasiga yhendust');
 }
 
-$tasks = [
-    new Task('Go to the store'), //0
-    new Task('Finish my screencast'), //1
-    new Task('Clean my room') //etc
-];
+$pdo->prepare('select * from todos');
 
-// dd($tasks);
+$statement->execute();
 
-$tasks[0]->complete();
+var_dump($statement->fetchAll());
 
+
+die();
+
+
+
+
+require 'functions.php';
+require 'task.php';
 require 'index.view.php';
-
-/* var_dump($task->isComplete()); */
-/* $task = new Task('Go to the store'); // a new task objekt */
-/* $task->complete(); */
-// require 'index.view.php';
