@@ -1,30 +1,10 @@
 <?php
 
-$host = 'd83309.mysql.zonevs.eu';
-$database = 'd83309_mytodo';
-$user = 'd83309sa327405';
-$password = 'ametikool2021';
+$query = require 'bootstrap.php';
 
+$tasks = $query-> selectAll('todos');
 
-try {
-    $pdo = new PDO("mysql:host={$host};dbname={$database}", $user, $password);
-    echo 'Yhenduse loomine 6nnestus';
-} catch ( PDOException $e) {
-    die('Viga: ei sa andmebaasiga yhendust');
-}
-
-$statement = $pdo->prepare('select * from todos');
-$result = $statement->fetchAll(); 
-$statement->execute();
-
-var_dump($statement->fetchAll());
-
-
-die();
-
-
-
-
-require 'functions.php';
-require 'task.php';
 require 'index.view.php';
+
+
+
