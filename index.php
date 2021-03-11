@@ -2,9 +2,8 @@
 
 $query = require 'bootstrap.php';
 
-$tasks = $query-> selectAll('todos');
+$router = new Router();
 
-require 'index.view.php';
+require 'routes.php';
 
-
-
+require $router->direct('contact');
